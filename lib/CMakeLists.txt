@@ -1,0 +1,40 @@
+add_library(
+  processing_lib
+  INTERFACE
+)
+
+target_include_directories(
+  processing_lib
+  INTERFACE
+  ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+add_subdirectory(dir)
+add_subdirectory(filter)
+add_subdirectory(open_files)
+add_subdirectory(as_data_flow)
+add_subdirectory(write)
+add_subdirectory(out)
+add_subdirectory(transform)
+add_subdirectory(as_vector)
+add_subdirectory(split)
+add_subdirectory(drop_nullopt)
+add_subdirectory(split_expected)
+add_subdirectory(join)
+add_subdirectory(aggregate_by_key)
+
+target_link_libraries(
+  processing_lib
+  INTERFACE
+  dir_lib
+  filter_lib
+  open_files_lib
+  as_data_flow_lib
+  transform_lib
+  as_vector_lib
+  split_lib
+  drop_nullopt_lib
+  split_expected_lib
+  join_lib
+  aggregate_by_key_lib
+)
